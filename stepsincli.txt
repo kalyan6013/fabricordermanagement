@@ -1,0 +1,23 @@
+create channel
+peer chaincode create -o orderer.orderermanagement.com:7050 -f --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/orderermanagement.com/orderers/orderer.orderermanagement.com/msp/tlscacerts/tlsca.orderermanagement.com-cert.pem --peerAddresses peer0.buyer.orderermanagement.com:7051
+
+Query chaincode
+peer chaincode query -C amchannel -n mycc  -c '{"Args":["query","a"]}'
+
+Invoke chaincode
+peer chaincode invoke -o orderer.orderermanagement.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/orderermanagement.com/orderers/orderer.orderermanagement.com/msp/tlscacerts/tlsca.orderermanagement.com-cert.pem -C buyersellerchannel -n order --peerAddresses peer0.buyer.orderermanagement.com:7051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/buyer.orderermanagement.com/peers/peer0.buyer.orderermanagement.com/tls/ca.crt --peerAddresses peer0.seller.orderermanagement.com:11051 --tlsRootCertFiles /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/seller.orderermanagement.com/peers/peer0.seller.orderermanagement.com/tls/ca.crt -c '{"Args":["createOrder","1","100","1111","2020-02-23","2020-02-23","1000","Seller"]}'
+
+{
+  "index":{
+      "fields":["order_id","qty","prod_id","order_date","expectedDate","status","owner"] // Names of the fields to be queried
+  },
+  "name":"order_id",
+  "type":"json"
+}
+
+
+user vishnu org name buyer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Nzk4OTQzODAsInVzZXJuYW1lIjoidmlzaG51Iiwib3JnTmFtZSI6IkF1ZGkiLCJpYXQiOjE1Nzk4NTgzODB9.Sb3Kd8sx0Lkths0Qnux_zcBHnMNFittjxSVPf8l847I
+
+user munjal org name seller
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Nzk4OTQyOTIsInVzZXJuYW1lIjoiTXVuamFsIiwib3JnTmFtZSI6Ik1SRiIsImlhdCI6MTU3OTg1ODI5Mn0.BnsgW_14AcZh37gCI_LXosAWMHX3nIbImnCXlF5mO2k

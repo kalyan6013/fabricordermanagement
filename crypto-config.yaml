@@ -1,0 +1,21 @@
+    OrdererOrgs:
+        - Name: Orderer
+          Domain: orderermanagement.com
+          EnableNodeOUs: true
+          Specs:
+            - Hostname: orderer
+    PeerOrgs:
+        - Name: buyer
+          Domain: buyer.orderermanagement.com
+          EnableNodeOUs: true
+          Template:
+            Count: 2
+          Users:
+            Count: 1
+        - Name: seller
+          Domain: seller.orderermanagement.com
+          EnableNodeOUs: true
+          Template:
+            Count: 2
+          Users:
+            Count: 1

@@ -1,0 +1,129 @@
+version: '2'
+
+volumes:
+  orderer.orderermanagement.com:
+  peer0.buyer.orderermanagement.com:
+  ca.buyer.orderermanagement.com:
+  ca.seller.orderermanagement.com:
+  peer1.buyer.orderermanagement.com:
+  peer0.seller.orderermanagement.com:
+  peer1.seller.orderermanagement.com:
+
+networks:
+  auto:
+
+services:
+
+  orderer.orderermanagement.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer.orderermanagement.com
+    container_name: orderer.orderermanagement.com
+    networks:
+      - auto
+
+  peer0.buyer.orderermanagement.com:
+    container_name: peer0.buyer.orderermanagement.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.buyer.orderermanagement.com
+    networks:
+      - auto
+
+  peer1.buyer.orderermanagement.com:
+    container_name: peer1.buyer.orderermanagement.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.buyer.orderermanagement.com
+    networks:
+      - auto
+
+  peer0.seller.orderermanagement.com:
+    container_name: peer0.seller.orderermanagement.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.seller.orderermanagement.com
+    networks:
+      - auto
+
+  peer1.seller.orderermanagement.com:
+    container_name: peer1.seller.orderermanagement.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.seller.orderermanagement.com
+    networks:
+      - auto
+
+  cli:
+    container_name: cli
+    image: hyperledger/fabric-tools:$IMAGE_TAG
+    tty: true
+    stdin_open: true
+    environment:
+      - SYS_CHANNEL=$SYS_CHANNEL
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      #- FABRIC_LOGGING_SPEC=DEBUG
+      - FABRIC_LOGGING_SPEC=INFO
+      - CORE_PEER_ID=cli
+      - CORE_PEER_ADDRESS=peer0.buyer.orderermanagement.com:7051
+      - CORE_PEER_LOCALMSPID=BuyerMSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/buyer.orderermanagement.com/peers/peer0.buyer.orderermanagement.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/buyer.orderermanagement.com/peers/peer0.buyer.orderermanagement.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/buyer.orderermanagement.com/peers/peer0.buyer.orderermanagement.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/buyer.orderermanagement.com/users/Admin@buyer.orderermanagement.com/msp
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./chaincode/:/opt/gopath/src/github.com/chaincode
+        - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        # - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
+        - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
+    depends_on:
+      - orderer.orderermanagement.com
+      - peer0.buyer.orderermanagement.com
+      - peer1.buyer.orderermanagement.com
+      - peer0.seller.orderermanagement.com
+      - peer1.seller.orderermanagement.com
+    networks:
+      - auto
+
+  ca.buyer.orderermanagement.com:
+    image: hyperledger/fabric-ca:$IMAGE_TAG
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-buyer
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.buyer.orderermanagement.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/485b2be1d6f50599780ae24718091a713f1972c9f6ebc16a881e30476592079c_sk
+      - FABRIC_CA_SERVER_PORT=7054
+    ports:
+      - "7054:7054"
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.buyer.orderermanagement.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/485b2be1d6f50599780ae24718091a713f1972c9f6ebc16a881e30476592079c_sk -b admin:adminpw -d'
+    volumes:
+      - ./fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
+      - ./crypto-config/peerOrganizations/buyer.orderermanagement.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca_peerbuyer
+    networks:
+      - auto
+
+  ca.seller.orderermanagement.com:
+    image: hyperledger/fabric-ca:$IMAGE_TAG
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-seller
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.seller.orderermanagement.com-cert.pem
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/481021e40d053766b808496e720252beb730857c5363a27c13c263a445c5d10a_sk
+      - FABRIC_CA_SERVER_PORT=9054
+    ports:
+      - "9054:9054"
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.seller.orderermanagement.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/481021e40d053766b808496e720252beb730857c5363a27c13c263a445c5d10a_sk -b admin:adminpw -d'
+    volumes:
+      - ./fabric-ca-server-config.yaml:/etc/hyperledger/fabric-ca-server/fabric-ca-server-config.yaml
+      - ./crypto-config/peerOrganizations/seller.orderermanagement.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca_peerseller
+    networks:
+      - auto

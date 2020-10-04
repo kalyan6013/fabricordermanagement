@@ -1,0 +1,134 @@
+    Organizations:
+        - &OrdererOrg
+            Name: OrdererMSP
+            ID: OrdererMSP
+            MSPDir: crypto-config/ordererOrganizations/orderermanagement.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('OrdererMSP.member')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('OrdererMSP.member')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('OrdererMSP.admin')"
+        - &Org1
+            Name: BuyerMSP
+            ID: BuyerMSP
+            MSPDir: crypto-config/peerOrganizations/buyer.orderermanagement.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('BuyerMSP.admin', 'BuyerMSP.peer', 'BuyerMSP.client')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('BuyerMSP.admin', 'BuyerMSP.client')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('BuyerMSP.admin')"
+            AnchorPeers:
+                - Host: peer0.buyer.orderermanagement.com
+                  Port: 7051
+
+        - &Org2
+            Name: SellerMSP
+            ID: SellerMSP
+            MSPDir: crypto-config/peerOrganizations/seller.orderermanagement.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('SellerMSP.admin', 'SellerMSP.peer', 'SellerMSP.client')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('SellerMSP.admin', 'SellerMSP.client')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('SellerMSP.admin')"
+            AnchorPeers:
+                - Host: peer0.seller.orderermanagement.com
+                  Port: 11051
+    Capabilities:
+        Channel: &ChannelCapabilities
+            V1_3: true
+        Orderer: &OrdererCapabilities
+            V1_1: true
+        Application: &ApplicationCapabilities
+            V1_3: true
+            V1_2: false
+            V1_1: false
+    Application: &ApplicationDefaults
+        Organizations:
+        Policies:
+            Readers:
+                Type: ImplicitMeta
+                Rule: "ANY Readers"
+            Writers:
+                Type: ImplicitMeta
+                Rule: "ANY Writers"
+            Admins:
+                Type: ImplicitMeta
+                Rule: "MAJORITY Admins"
+        Capabilities:
+            <<: *ApplicationCapabilities
+    Orderer: &OrdererDefaults
+        OrdererType: solo
+        Addresses:
+            - orderer.orderermanagement.com:7050
+        BatchTimeout: 2s
+        BatchSize:
+            MaxMessageCount: 10
+            AbsoluteMaxBytes: 99 MB
+            PreferredMaxBytes: 512 KB
+        Organizations:
+        Policies:
+            Readers:
+                Type: ImplicitMeta
+                Rule: "ANY Readers"
+            Writers:
+                Type: ImplicitMeta
+                Rule: "ANY Writers"
+            Admins:
+                Type: ImplicitMeta
+                Rule: "MAJORITY Admins"
+            BlockValidation:
+                Type: ImplicitMeta
+                Rule: "ANY Writers"
+    Channel: &ChannelDefaults
+        Policies:
+            Readers:
+                Type: ImplicitMeta
+                Rule: "ANY Readers"
+            Writers:
+                Type: ImplicitMeta
+                Rule: "ANY Writers"
+            Admins:
+                Type: ImplicitMeta
+                Rule: "MAJORITY Admins"
+        Capabilities:
+            <<: *ChannelCapabilities
+    Profiles:
+        OrdererManagementGenesis:
+            <<: *ChannelDefaults
+            Orderer:
+                <<: *OrdererDefaults
+                Organizations:
+                    - *OrdererOrg
+                Capabilities:
+                    <<: *OrdererCapabilities
+            Consortiums:
+                SampleConsortium:
+                    Organizations:
+                        - *Org1
+                        - *Org2
+
+        BS_Channel:
+            Consortium: SampleConsortium
+            <<: *ChannelDefaults
+            Application:
+                <<: *ApplicationDefaults
+                Organizations:
+                    - *Org1
+                    - *Org2
+                Capabilities:
+                    <<: *ApplicationCapabilities

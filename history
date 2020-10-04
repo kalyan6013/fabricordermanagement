@@ -1,0 +1,2000 @@
+2~docker rm -f $(docker ps -aq)
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+./byfn.sh -m down
+clear
+./byfn.sh -m down
+./byfn.sh -m up
+./byfn.sh -m down
+docker ps -a
+docker volume prune 
+docker network prune 
+code .
+./byfn.sh -m down
+./byfn.sh -m up
+./byfn.sh -m down
+./byfn.sh -m up
+./byfn.sh -m down
+docker volume prune 
+docker network prune 
+clear
+./byfn.sh up
+./byfn.sh down
+docker volume prune 
+docker network prune 
+docker ps -a
+../bin/cryptogen generate --config=./crypto-config.yaml
+export FABRIC_CFG_PATH=$PWD
+../bin/configtxgen -profile TwoOrgsOrdererGenesis -channelID byfn-sys-channel -outputBlock ./channel-artifacts/genesis.block
+export CHANNEL_NAME=mychannel && ../bin/configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID $CHANNEL_NAME
+../bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org1MSP
+../bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID $CHANNEL_NAME -asOrg Org2MSP
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker exec -it cli bash
+exit
+./bin/configtxgen -profile OrdererGenesis -channelID ordermanagement -outputBlock ./chane
+./bin/cryptogen generate --output="crypto-config" --config=crypto-config.yaml
+./bin/configtxgen -profile OrdererGenesis -channelID ordermanagement -outputBlock ./channel-artifacts/gensis.block
+./bin/configtxgen -profile Channelbuyerseller -outputCreateChannelTx ./channel-artifacts/AM_Channel.tx -channelID buyerseller
+./bin/configtxgen -profile Channelbuyerbs -outputCreateChannelTx ./channel-artifacts/AB_Channel.tx -channelID buyerbs
+./bin/configtxgen -profile Channelbuyerseller -outputAnchorPeersUpdate ./channel-artifacts/BuyerMSPAB_Channelanchors.tx -channelID buyerseller -asOrg buyerMSP
+cd ..
+echo "# ULTS_Training" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/kalyan6013/ULTS_Training.git
+git push -u origin master
+ls -l
+git clone https://github.com/kalyan6013/ULTS_Training.git
+cd ULTS_Training/
+ls -l
+nano crypto-config.yaml
+code .
+mkdir channel-artifacts
+../bin/cryptogen generate --config=./crypto-config.yaml
+./bin/cryptogen generate --config=./crypto-config.yaml
+export FABRIC_CFG_PATH=$PWD
+./bin/configtxgen -profile OrdererGenesis -channelID ordererchannel -outputBlock ./channel-artifacts/genesis.block
+./bin/configtxgen -profile BuyerSellerChannel -outputCreateChannelTx ./channel-artifacts/BuyerSellerchannel.tx -channelID BuyerSellerChannel
+export FABRIC_CFG_PATH=$PWD
+./bin/configtxgen -profile BuyerSellerChannel -outputCreateChannelTx ./channel-artifacts/BuyerSellerchannel.tx -channelID BuyerSellerChannel
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputCreateChannelTx ./channel-artifacts/BuyerBridgeStonechannel.tx -channelID BuyerBridgeStoneChannel
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerSellerMSPanchors.tx -channelID BuyerSellerChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerBridgeStoneMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/SellerBuyerMSPanchors.tx -channelID BuyerSellerChannel -asOrg SellerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BridgeStoneBuyerMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BridgeStoneMSP
+./bin/configtxgen -profile OrdererGenesis -channelID ordererchannel -outputBlock ./channel-artifacts/genesis.block
+./bin/configtxgen -profile BuyerSellerChannel -outputCreateChannelTx ./channel-artifacts/BuyerSellerchannel.tx -channelID BuyerSellerChannel
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputCreateChannelTx ./channel-artifacts/BuyerBridgeStonechannel.tx -channelID BuyerBridgeStoneChannel
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerSellerMSPanchors.tx -channelID BuyerSellerChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerBridgeStoneMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/SellerBuyerMSPanchors.tx -channelID BuyerSellerChannel -asOrg SellerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BridgeStoneBuyerMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BridgeStoneMSP
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker logs 16afe509103f
+docker images
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker logs dbb3bcae408f
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+./bin/cryptogen generate --config=./crypto-config.yaml
+export FABRIC_CFG_PATH=$PWD
+./bin/configtxgen -profile OrdererGenesis -channelID ordererchannel -outputBlock ./channel-artifacts/genesis.block
+./bin/configtxgen -profile BuyerSellerChannel -outputCreateChannelTx ./channel-artifacts/BuyerSellerchannel.tx -channelID BuyerSellerChannel
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputCreateChannelTx ./channel-artifacts/BuyerBridgeStonechannel.tx -channelID BuyerBridgeStoneChannel
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerSellerMSPanchors.tx -channelID BuyerSellerChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerBridgeStoneMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/SellerBuyerMSPanchors.tx -channelID BuyerSellerChannel -asOrg SellerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BridgeStoneBuyerMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BridgeStoneMSP
+history
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker logs 6e8d075db5ba
+./bin/configtxgen -profile OrdererGenesis -channelID ordererchannel -outputBlock ./channel-artifacts/genesis.block
+./bin/configtxgen -profile BuyerSellerChannel -outputCreateChannelTx ./channel-artifacts/BuyerSellerchannel.tx -channelID BuyerSellerChannel
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputCreateChannelTx ./channel-artifacts/BuyerBridgeStonechannel.tx -channelID BuyerBridgeStoneChannel
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerSellerMSPanchors.tx -channelID BuyerSellerChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerBridgeStoneMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/SellerBuyerMSPanchors.tx -channelID BuyerSellerChannel -asOrg SellerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BridgeStoneBuyerMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BridgeStoneMSP
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+history
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker logs f77df1a39fb8
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+./bin/configtxgen -profile OrdererGenesis -channelID ordererchannel -outputBlock ./channel-artifacts/genesis.block
+./bin/configtxgen -profile BuyerSellerChannel -outputCreateChannelTx ./channel-artifacts/BuyerSellerchannel.tx -channelID BuyerSellerChannel
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputCreateChannelTx ./channel-artifacts/BuyerBridgeStonechannel.tx -channelID BuyerBridgeStoneChannel
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerSellerMSPanchors.tx -channelID BuyerSellerChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerBridgeStoneMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/SellerBuyerMSPanchors.tx -channelID BuyerSellerChannel -asOrg SellerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BridgeStoneBuyerMSPanchors.tx -channelID BuyerBridgeStoneChannel -asOrg BridgeStoneMSP
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker exec -it cli bash
+exit
+cd Documents/fabric-samples/first-network/
+./byfn.sh up
+docker ps -a
+./byfn.sh down
+exit
+docker ps -a
+docker exec -it cli bash
+clear
+cd Documents/ULTS_Training/
+history
+git add .
+git commit -m "Created files to generate certificates/artifacts and to bootstrap the network"
+git push
+exit
+cd Documents/ULTS_Training/
+git add .
+git commit -m "Created files for generating certificates/artifacts"
+git push
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+docker ps -a
+clear
+docker ps -a
+docker volume prune 
+docker network prune 
+clear
+ls -l
+./bin/cryptogen generate --config=./crypto-config.yaml
+export FABRIC_CFG_PATH=$PWD
+./bin/configtxgen -profile OrdererGenesis -channelID ordererchannel -outputBlock ./channel-artifacts/genesis.block
+./bin/configtxgen -profile BuyerSellerChannel -outputCreateChannelTx ./channel-artifacts/BuyerSellerchannel.tx -channelID buyersellerchannel
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputCreateChannelTx ./channel-artifacts/BuyerBridgeStonechannel.tx -channelID buyerbridgestonechannel
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerSellerMSPanchors.tx -channelID buyersellerchannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BuyerBridgeStoneMSPanchors.tx -channelID buyerbridgestonechannel -asOrg BuyerMSP
+./bin/configtxgen -profile BuyerSellerChannel -outputAnchorPeersUpdate ./channel-artifacts/SellerBuyerMSPanchors.tx -channelID buyersellerchannel -asOrg SellerMSP
+./bin/configtxgen -profile BuyerBridgeStoneChannel -outputAnchorPeersUpdate ./channel-artifacts/BridgeStoneBuyerMSPanchors.tx -channelID buyerbridgestonechannel -asOrg BridgeStoneMSP
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker exec -it cli bash
+
+docker ps -a
+clear
+docker images
+sudo service apache2 stop
+sudo /opt/lampp/lampp start
+clear
+exit
+code .
+cd
+cd Documents/fabric-samples/first-network/
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume  prune 
+docker volume prune 
+clear
+./byfn.sh -m down
+./byfn.sh -m up
+code .
+history
+cat ~/.bash_history
+cat ~/.bash_history > historyofcommands.txt
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker ps -a
+docker volume prune 
+docker network prune 
+./runApp.sh 
+docker ps -a
+docker exec -it bash
+docker exec -it bash cli
+docker exec -it 293bc4ae968e cli
+docker exec -it 293bc4ae968e bash
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker ps -a
+docker volume prune 
+docker network prune 
+clear
+docker ps -a
+clear
+exit
+docker ps -a
+docker exec -it df740fcda8f6 bash
+exit
+cd cd
+clear
+cd
+cd Documents/fabric-samples/balance-transfer/
+./runApp.sh 
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+docker volume prune 
+clear
+npm install lodash --save
+sudo npm install lodash --save
+git clone https://github.com/Vishnu2611/fabric-ordermanagement.git
+ls -l
+cd fabric-ordermanagement/
+ls -l
+code .
+clear
+docker ps -a
+clear
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker logs 187674a2300e
+docker-compose -f docker-compose-cli.yaml down
+docker ps -a
+docker volume prune 
+docker network prune 
+clear
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker logs 4b4326766a23
+docker-compose -f docker-compose-cli.yaml down
+docker volume prune 
+docker network prune 
+docker ps -a
+clear
+./bin/cryptogen generate --config=./crypto-config.yaml
+export FABRIC_CFG_PATH=$PWD
+./bin/configtxgen -profile OrdererManagementGenesis -channelID orderchannel -outputBlock ./channel-artifacts/genesis.block
+/bin/configtxgen -profile AB_Channel -outputCreateChannelTx ./channel-artifacts/AB_Channel.tx -channelID abchannel
+./bin/configtxgen -profile AB_Channel -outputCreateChannelTx ./channel-artifacts/AB_Channel.tx -channelID abchannel
+./bin/configtxgen -profile AM_Channel -outputCreateChannelTx ./channel-artifacts/AM_Channel.tx -channelID amchannel
+./bin/configtxgen -profile AB_Channel -outputAnchorPeersUpdate ./channel-artifacts/BuyerMSPAB_Channelanchors.tx -channelID abchannel -asOrg BuyerMSP
+./bin/configtxgen -profile AM_Channel -outputAnchorPeersUpdate ./channel-artifacts/BuyerMSPAM_Channelanchors.tx -channelID amchannel -asOrg BuyerMSP
+./bin/configtxgen -profile AB_Channel -outputAnchorPeersUpdate ./channel-artifacts/BuyerMSPAB_Channelanchors.tx -channelID abchannel -asOrg BuyerMSP
+./bin/configtxgen -profile AB_Channel -outputAnchorPeersUpdate ./channel-artifacts/BridgestoneMSPAB_Channelanchors.tx -channelID abchannel -asOrg BridgestoneMSP
+./bin/configtxgen -profile AM_Channel -outputAnchorPeersUpdate ./channel-artifacts/sellerMSPAM_Channelanchors.tx -channelID amchannel -asOrg sellerMSP
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker logs 1e24f1a90f68
+docker logs 9b6e6c71a253
+clear
+docker ps -a
+docker-compose -f docker-compose-cli.yaml down
+docker-compose -f docker-compose-cli.yaml up -d
+docker-compose -f docker-compose-cli.yaml up down
+docker-compose -f docker-compose-cli.yaml down
+docker volume prune 
+docker network prune 
+clear
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+ls -l
+docker ps -a
+clear
+docker ps -a
+cd api/
+node app.js
+sudo /root/.npm/_logs/
+cd
+sudo cd /root/.npm/_logs/
+cd /root/.npm/_logs/
+sudo cd /root/.npm/_logs/
+docker ps -a
+docker images
+docker ps -a
+cd Documents/ULTS_Project/fabric-ordermanagement/
+git init
+git add .
+git commit -m "Working Copy"
+git remote add origin https://github.com/kalyan6013/ULTS_NewProject.git
+git push -u origin master
+git add .
+git commit -m "Working Copy"
+git remote add origin https://github.com/kalyan6013/ULTS_NewProject.git
+git push -u origin master
+cd ..
+mkdir order
+cd order/
+git clone https://github.com/Vishnu2611/fabric-ordermanagement.git
+cd fabric-ordermanagement/
+ls -l
+cd 
+cd Documents/
+git clone https://github.com/kalyan6013/tyreFrontend.git
+cd tyreFrontend/
+npm install
+ng serve
+code .
+docker ps -a
+docker rm -f $(docker ps -a)
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+cd ..
+cd ULTS_Project/fabric-ordermanagement/
+ls -l
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker-compose -f docker-compose-cli.yaml down
+docker volume prune 
+docker network prune 
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps-a
+docker ps -a
+docker logs 299ec25bf44c
+ng g c signup
+cd src/app/components/
+ng g c login
+docker ps -a
+code .
+docker-compose -f docker-compose-cli.yaml down
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+cd Documents/fabric-samples/first-network/
+./byfn.sh up -o kafka
+clear
+exit
+sudo apt install kdenlive
+sudo apt-get update
+sudo apt install openshot
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo su
+sudo rm /var/lib/apt/lis-vsf
+sudo rm /var/lib/apt/lists/* -vs
+sudo rm /var/lib/apt/lists/* -vf
+sudo rmdir /var/lib/apt/lists/* -vf
+sudo apt-get update
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo add-apt-repository ppa:ozmartian/apps
+sudo apt update && sudo apt install qml-module-qtmultimedia vidcutter
+sudo rmdir /var/lib/apt/lists/* -vf
+sudo rm /var/lib/apt/lists/* -vf
+sudo apt-get update
+exit
+sudo apt update && sudo apt install qml-module-qtmultimedia vidcutter
+sudo add-apt-repository ppa:ozmartian/apps
+sudo apt update && sudo apt install qml-module-qtmultimedia vidcutter
+sudo add-apt autoclean
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo apt-get update
+sudo add-apt-repository ppa:ozmartian/apps
+sudo apt-get update
+sudo apt-get install vidcutter
+sudo apt-get remove vidcutter
+udo add-apt-repository --remove ppa:ozmartian/apps
+sudo add-apt-repository --remove ppa:ozmartian/apps
+cd Documents/fabric-samples/first-network/
+./byfn.sh up
+./eyfn.sh up
+./eyfn.sh down
+./byfn.sh down
+docker volume 
+docker volume prune 
+docker network prune 
+docker ps -a
+exit
+docker ps -a
+cd ..
+cd buyertor-artifacts/
+../../bin/cryptogen generate --config=./buyertor-crypto.yaml
+./bin/cryptogen generate --config=./buyertor-crypto.yaml
+../bin/cryptogen generate --config=./buyertor-crypto.yaml
+../bin/configtxgen -printOrg BuyertorMSP > ../channel-artifacts/buyertor.json
+cd ../ && cp -r crypto-config/ordererOrganisation buyertor-artifacts/crypto-config
+cd ../ && cp -r crypto-config/ordererOrganization buyertor-artifacts/crypto-config
+cd ../ && cp -r crypto-config/ordererOrganizations buyertor-artifacts/crypto-config
+cd Documents/ULTS_Project/fabric-ordermanagement/buyertor-artifacts/
+cd ../ && cp -r crypto-config/ordererOrganizations buyertor-artifacts/crypto-config
+cd ..
+code .
+docker ps -a
+docker exec -it cli bash
+exit
+ls -l
+docker-compose -f docker-compose-buyertor.yaml up -d
+docker-compose -f docker-compose-cli-buyertor.yaml up -d
+docker exec -it buyertorcli bash
+docker ps -a
+docker exec -it buyertorcli bash
+docker-compose -f docker-compose-cli-buyertor.yaml down
+docker-compose -f docker-compose-cli-buyertor.yaml up -d
+docker ps -a
+docker exec -it buyertorcli bash
+docker-compose -f docker-compose-cli-buyertor.yaml down
+exit
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+ls -l
+cd api/
+ls -l
+node app.js
+exit
+cd api/
+node app.js 
+docker exec -it cli bash
+docker-compose -f docker-compose-cli.yaml down
+docker volume prune 
+docker network prune 
+clear
+docker-compose -f docker-compose-cli.yaml up
+docker ps -a
+docker rm -f $(docker ps -a
+)
+docker rm -f $(docker ps -a)
+docker rm -f $(docker ps -aq)
+docker volume  pr
+docker volume  prune 
+docker network prune 
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker exec -it cli bash
+docker-compose -f docker-compose-cli-buyertor.yaml up -d
+docker ps -a
+docker exec -it buyertorcli bash
+exit
+cd buyertor-artifacts/
+../bin/cryptogen generate --config=./buyertor-crypto.yaml
+../bin/configtxgen -printOrg BuyertorMSP > ../channel-artifacts/buyertor.json
+cd ..
+docker-compose -f docker-compose-cli-buyertor.yaml up -d
+docker exec -it buyertorcli bash
+t
+exit
+cd ..
+docker-compose -f docker-compose-cli.yaml up -d
+docker-compose -f docker-compose-cli.yaml dow
+docker volume prune 
+docker network prune 
+clear
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+clear
+cd buyertor-artifacts/
+../bin/cryptogen generate --config=./buyertor-crypto.yaml
+export FABRIC_CFG_PATH=$PWD
+../bin/configtxgen -printOrg BuyertorMSP > ../channel-artifacts/buyertor.json
+cd ../ && cp -r crypto-config/ordererOrganisation buyertor-artifacts/crypto-config
+../bin/configtxgen -printOrg BuyertorMSP > ../channel-artifacts/buyertor.json
+docker exec -it cli bash
+docker-compose -f docker-compose-cli.yaml 
+docker-compose -f docker-compose-cli.yaml donw
+docker-compose -f docker-compose-cli.yaml down
+docker-compose -f docker-compose-cli-buyertor.yaml.yaml down
+docker-compose -f docker-compose-cli-buyertor.yaml down
+docker ps -a
+docker volume prune 
+docker network prune 
+clear
+docker-compose -f docker-compose-cli.yaml 
+clear
+docker-compose -f docker-compose-cli.yaml up -d
+docker exec -it cli bash
+exit
+docker ps 0a
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+cd Documents/ULTS_Project/
+cd fabric-ordermanagement/
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+clear
+cd api/
+node app.js
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+docker ps -a
+exit
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+sudo apt-get update
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo add-apt-repository ppa:openshot.developers/ppa
+sudo apt-get update
+sudo apt-get install openshot-qt
+sudo apt-get remove --autoremove openshot-qt
+clear
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo apt-get update
+sudo apt-get remove --autoremove avidemux2.6-qt
+sudo apt-get install avidemux2.6-qt
+sudo add-apt-repository ppa:ubuntuhandbook1/avidemux
+sudo apt-get update
+sudo apt install avidemux2.7-qt5 avidemux2.7-qt5-data avidemux2.7-plugins-qt5 avidemux2.7-jobs-qt5
+sudo apt remove avidemux2.7-qt
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo apt remove avidemux2.7-qt
+sudo apt remove avidemux2.7-qtsudo apt-get autoclean
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo apt-get clean
+sudo apt remove avidemux2.7-qtsudo apt-get autoclean
+history
+sudo apt remove avidemux2.7-qt
+clear
+exit
+code .
+ls -l
+pwd
+cd Documents/
+cd fabric-samples/
+cd first-network/
+ls -l
+clear
+./byfn.sh -m up
+./byfn.sh -m down
+docker volume prune 
+docker network prune 
+clear
+dokcer images
+docker images
+clear
+docker ps 0a
+docker ps -a
+clear
+exit
+history
+docker ps -a
+cd ..
+./scripts.sh 
+clear
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a 
+docker logs 28cef9e002ef
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume 
+docker volume prune 
+clear
+exit
+./startFabric.sh 
+node order.js
+clear
+docker ps -a
+./scripts.sh 
+clear
+history
+cd api/
+node app.js
+exit
+code.
+code .
+docker ps -a
+exit
+code .
+cd Documents/
+ssh -i tangensys.pem ubuntu@ec2-18-188-23-70.us-east-2.compute.amazonaws.com
+cd kalyan
+ls -l
+pwd
+ls ./sshh
+ls ./ssh
+cd .ssh/
+ls -l
+cat id_rsa.pub 
+cd
+pwd
+cd .ssh/
+ls -l
+ssh -i id_rsa tangensys@13.76.176.62
+cd 
+pwd
+cd .ssh/
+ssh -i id_rsa tangensys@13.76.176.62
+cd Documents/
+ssh -i tangensys.pem ubuntu@ec2-18-188-23-70.us-east-2.compute.amazonaws.com
+sudo apt-get autoremove
+sudo apt-get autoclean
+history
+sudo apt-get upadte
+sudo apt-get upadate
+sudo apt-get update
+sudo rm -vf /var/lib/apt/lists/*
+sudo apt-get update
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo apt-get clean
+df -h
+df
+du
+df -h
+cd 
+cd ./ssh
+cd .ssh/
+ssh -i id_rsa tangensys@13.76.176.62
+npm install
+ng serve
+ng --version
+ng g s Blockchain
+npm i @angular/http
+cd api/
+node app.js
+cd ..
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+docker rm -f $(docker ps -aq)
+clear
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps 0a
+docker ps -a
+clear
+docker ps -a
+clear
+code .
+docker ps -a
+clear
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+clear
+docker-compose -f ./docker-compose-cli.yaml up -d
+ng serve -o
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+docker logs 774bdd480ade
+docker logs 774bdd480ade 
+cd api/
+node app.js
+docker logs 774bdd480ade
+docker ps -a
+docker logs 00bc91a44713
+docker logs 774bdd480ade
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+docker system prune 
+clear
+exit
+cd 
+cd Documents/tyreFrontend/
+ng serve -o
+docker ps -a
+clear
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+exit
+ng serve -o
+docker ps -a
+cd Documents/ULTS_Project/WorkingCopy/fabric-ordermanagement/
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+cd api/
+node app.js 
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+npx create-react-app frontendTyre
+npx create-react-app frontendtyre
+cd frontendtyre/
+npm install axios
+npm start
+cd ..
+rm -rf frontendtyre/
+clear
+npm -v
+node -v
+npx create-react-app frontend
+npx create-react-app frontendblock
+npm uninstall -g create-react-app
+rm -rf frontendblock/
+npx create-react-app frontendblock
+create-react-app -v
+cd frontendblock/
+ls
+cd /home/kalyan/Desktop/frontendblock
+npm start
+npm install
+npm start
+npm ls webpack
+cd ..
+npm ls webpack
+git init
+git commit -m "first commit"
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/kalyan6013/ULTS_Project.git
+git push -u origin master
+cd Desktop/
+chmod -R 777 frontendblock (2)
+chmod -R 777 frontendblock(2)
+chmod -R 777 frontendblock (2)
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo apt-get clean
+clear
+exit
+cd Desktop/
+ssh -i tangensysnew.pem ubuntu@ec2-18-189-192-172.us-east-2.compute.amazonaws.com
+sudo ssh -i tangensysnew.pem ubuntu@ec2-18-189-192-172.us-east-2.compute.amazonaws.com
+cd Desktop/
+sudo ssh -i tangensysnew.pem ubuntu@ec2-18-189-192-172.us-east-2.compute.amazonaws.com
+exit
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+cd api/
+node app.js 
+cd api
+node app.js
+cd ..
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+ng g c viewOrderDetails
+ng serve -o
+ng serve
+cd ..
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+clear
+cd api/
+node app.js 
+cd Desktop/
+ssh -i tangensysnew.pem ubuntu@ec2-18-189-192-172.us-east-2.compute.amazonaws.com
+sudo ssh -i tangensysnew.pem ubuntu@ec2-18-189-192-172.us-east-2.compute.amazonaws.com
+./startFabric.sh 
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+clear
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+clear
+docker logs 756dd4284b80
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+docker-compose -f ./docker-compose-cli.yaml up -d
+docker ps -a
+code .
+code .
+exit
+code .
+npm install
+cd
+cd ~/ .ssh
+cd .ssh/
+ls -l
+mkdir zkp
+cd zkp/
+ssh-keygen -o
+cd ..
+rmdir zkp/
+cat id_rsa.pub 
+ssh -i id_rsa zkp@52.148.89.167
+exit
+pwd
+exit
+docker ps -a
+docker logs e00b2090e5be
+node -v
+docker ps -a
+docker logs 2febf539afea
+docker ps -a
+clear
+docker ps -a
+docker logs d728e904ec35
+docker ps -a
+docker logs d728e904ec35
+docker logs 898599384c58
+docker logs d728e904ec35
+exit
+cd Desktop/
+ssh -i blockchainzkp.pem ubuntu@ec2-18-188-213-25.us-east-2.compute.amazonaws.com
+sudo ssh -i blockchainzkp.pem ubuntu@ec2-18-188-213-25.us-east-2.compute.amazonaws.com
+cd ..
+cd Documents/fabric-samples/
+cd first-network/
+./byfn.sh 
+./byfn.sh -m up
+docker ps -a
+./byfn.sh -m down
+docker volume prune 
+vlear
+clear
+./byfn.sh 
+clear
+./byfn.sh -m up
+docker exec -it cli bash
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+./byfn.sh -m down
+docker volume  prune 
+docker network prune 
+clear
+./byfn.sh -m up
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+docker ps a
+docker ps -a
+docker volume prune 
+docker network 
+docker network prune 
+clear
+./byfn.sh -m up -l node
+docker ps -a
+docker exec -it cli bash
+./byfn.sh -m down
+docker volume prune 
+docker network prune 
+clear
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker ps -a
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+docker ps -a
+clear
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+docker volume  prune 
+docker network prune 
+clea
+cler
+clear
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+clear
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker ps -a
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+clear
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+clear
+docker ps -a
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+cd 
+cd Documents/fabric-samples/zkp/
+ls -l
+code .
+./byfn.sh 
+./byfn.sh -m gene
+./byfn.sh -m generate
+./byfn.sh -m up
+./byfn.sh -m down
+docker volume prune 
+docker network prune 
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume pr
+docker volume prune 
+docker ps -a
+clear
+./byfn.sh -m up
+docker ps -a
+./byfn.sh -m down
+docker volume prune 
+docker network prune 
+./byfn.sh -m gene
+clear
+./byfn.sh -m generate
+./byfn.sh -m down
+./byfn.sh -m generate
+./byfn.sh -m up
+docker ps -a
+docker LOGS 3c86059c528d
+docker logs 3c86059c528d
+docker LOGS 3c86059c528d
+docker logs 3c86059c528d
+clear
+docker ps -a
+clear
+docker ps -a
+docker logs 177eb9a09f45
+docker ps -a
+docker logs 92004170474a
+clear
+docker ps -a
+docker logs 5d02955d3c39
+clear
+docker ps -a
+docker logs c7bbb0797c5c
+docker logs c7bbb0797c5cclear
+clear
+docker ps -a
+docker logs f851877d7198
+clear
+docker ps -a
+docker logs b101ab85d535
+clear
+docker ps -a
+docker logs 66c969c1b2c2
+docker ps -a
+docker logs af90f58ace8d
+clear
+docker ps -a
+docker logs 830aebbc8f5a
+docker ps -a
+docker logs 5c77e1307aae
+docker ps -a
+docker logs 82de5ddb8f85
+docker ps -a
+docker logs d3e994078171
+docker ps -a
+docker logs be1eac574a68
+clear
+docker ps -a
+docker logs ddbc514bffd5
+git inti
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/kalyan6013/zkp.git
+git push -u origin master
+code .
+git add .
+git commit -m "changes in script files"
+git remote add origin https://github.com/kalyan6013/zkp.git
+git push -u origin master
+clear
+exit
+code .
+docker ps -a
+docker ps -a
+docker logs de25a2e7d136
+docker ps -a
+docker logs d3e7410688c7
+docker logs de25a2e7d136
+docker ps -a
+docker logs 6ad33c61a0eb
+docker ps -a
+docker logs 53e9698da3b8
+docker ps -a
+docker logs 36477643cd65
+docker ps -a
+docker logs 4024486fb8ca
+cd
+cd Desktop/
+ls -l
+sudo ssh -i blockchainzkp.pem ubuntu@http://ec2-18-188-213-25.us-east-2.compute.amazonaws.com/
+sudo ssh -i blockchainzkp.pem ubuntu@ec2-18-188-213-25.us-east-2.compute.amazonaws.com/
+sudo ssh -i blockchainzkp.pem ubuntu@ec2-18-188-213-25.us-east-2.compute.amazonaws.com
+cd Documents/fabric-samples/first-network/
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+docker ps -a
+docker exec -it cli bash
+cd ..
+cd fabcar/
+./startFabric.sh 
+cd ..
+cd first-network/
+./byfn.sh -m down
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+cd ..
+cd fabcar/
+./startFabric.sh 
+cd javascript
+npm invoke.js 
+npm install
+node enrollAdmin
+node enrollAdmin user1
+node registerUser user1
+node invoke
+node registerUser user2
+clear
+docker ps pa
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+clear
+node query.js 
+docker exec -it cli bash
+docker ps -a
+./st
+cd ..
+./startFabric.sh 
+ng --version
+code .
+exit
+cd Desktop/
+mkdir guviangular
+cd guviangular/
+cd ..
+rmdir guviangular/
+ng new guviangular
+cd guviangular/
+ng serve
+exit
+./byfn.sh -m down
+docker rm -f $(docker ps -aq)
+docker volume 
+docker volume prune 
+docker network prune 
+clear
+docker ps -a
+docker logs ba9c78574c64
+docker ps -a
+clear
+docker ps -a
+docker rm ada967d0f21e 3de7c94414cc 5a59cac50163 92569d6df543 297b5f2eb1aa 23a85b2f8400
+docker ps -a
+docker logs e85323aed82a
+clear
+docker ps -a
+docker logs 54ed9f95e579
+clear
+docker ps -a
+docker logs 6987a9014885
+docker ps -a
+docker logs bedf7d75dcf7
+exit
+docker ps -a
+docker logs 47529d124f3e
+docker ps -a
+docker logs effe03768da6
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+docker logs ada967d0f21e
+docker ps -a
+clear
+docker ps -a
+docker logs 69d83a09cce3
+clear
+docker ps -a
+docker stop 69d83a09cce3
+docker ps -a
+docker rm 69d83a09cce3
+docker ps -a
+docker logs 3de7c94414cc
+clear
+docker logs 3de7c94414cc
+clear
+docker ps -a
+docker logs 5a59cac50163
+docker ps -a
+clear
+docker ps -a
+docker stop ada967d0f21e
+docker stop 3de7c94414cc
+docker stop 5a59cac50163
+docker ps -a
+docker logs 92569d6df543
+docker ps -a
+docker stop 92569d6df543
+docker stop 297b5f2eb1aa
+docker stop 23a85b2f8400
+docker ps -a
+docker logs 2600ac8f3e5f
+docker exec -it cli bash
+exit
+cd Documents/fabric-samples/first-network/
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+exit
+docker ps -a
+docker logs 25cc5c673f51
+docker ps pa
+docker ps -a
+docker logs ff28e7ff36f8
+docker ps -a
+docker logs ff28e7ff36f8
+clear
+docker ps -a
+docker logs 53b4b25ed6e0
+./byfn.sh -m down
+docker ps -a
+docker volume prune 
+docker network prune 
+clear
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m d
+./byfn.sh -m up -l node
+docker exec -it cli bash
+docker exec -it cli bash
+clear
+export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+export CORE_PEER_ADDRESS=peer0.org2.example.com:7051
+export CORE_PEER_LOCALMSPID="Org2MSP"
+export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+docker exec -it cli bash
+cd Documents/fabric-samples/first-network/
+./byfn.sh -m down
+clear
+exit
+code .
+./byfn.sh -m down
+clear
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+docker exec -it cli bash
+docker ps -a
+docker logs 037c7aced88c
+clear
+docker ps -a
+clear
+docker ps -a
+docker logs 5dfe509ccff6
+./byfn.sh -m -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+cd
+exit
+docker ps -a
+clear
+docker logs 2955187e270b
+clear
+docker ps -a
+./byfn.sh -m down
+exit
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker ps -a
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker ps -a
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+clear
+./byfn.sh -m up -l node
+clear
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+exit
+docker ps -a
+docker logs 193ca1e2c746
+docker ps -a
+clear
+docker ps =a
+docker ps -a
+clear
+docker ps -a
+docker logs c5bd18466711
+docker ps -a
+clear
+docker ps -a
+docker exec -it cli bash
+cd Documents/fabric-samples/first-network/
+./byfn.sh -m down
+clear
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+clear
+cd ..
+cd
+cd Desktop/BlockChain-ZKP/
+cd zkp/
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+clear
+git add .
+git commit -m "Added new chaincode with all functionality"
+git push origin master
+git pull
+clear
+./byfn.sh -m down
+docker ps -a
+exit
+code .
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo apt-get clean
+node -v
+angular --version
+ng --version
+cd Desktop/BlockChain-ZKP/
+cleae
+clear
+ls -l
+cd zkp/
+ls -l
+clear
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+cd ..
+code .
+cd zkp/
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+clear
+docker ps -a
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+docker exec -it cli bash
+clear
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+clear
+docker exec -it cli bash
+docker exec -it cli bash
+docker ps -a
+docker logs 7fe31f68c004
+docker ps -a
+docker rm 7fe31f68c004
+docker stop 7fe31f68c004
+docker rm 7fe31f68c004
+docker ps -a
+docker logs c0b5fdc10158
+docker ps -a
+docker logs c7247789337b
+docker ps -a
+docker logs 514ead046c52
+clear
+docker ps -a
+docker logs 496750d53ab5
+clear
+docker ps -a
+docker logs 3216b6ecbbff
+docker ps 0a
+docker ps -a
+docker logs 3da971797a39
+docker ps -a
+docker stop 6eae5ef9568c 1840f17671b3 c99990d1164c c0b5fdc10158 c7247789337b 514ead046c52 3216b6ecbbff 3da971797a39
+docker ps -a
+docker rm 6eae5ef9568c 1840f17671b3 c99990d1164c c0b5fdc10158 c7247789337b 514ead046c52 3216b6ecbbff 3da971797a39
+docker ps -a
+docker logs 890c762bf48c
+docker ps -a
+docker logs 30876dcc47e9
+docker ps -a
+docker logs 545be6071ddd
+docker ps -a
+docker logs ac802026fce2
+docker ps -a
+docker stop 890c762bf48c 30876dcc47e9 545be6071ddd ac802026fce2
+docker rm 890c762bf48c 30876dcc47e9 545be6071ddd ac802026fce2
+docker logs 45731b33686a
+clear
+docker logs 45731b33686a
+docker ps -a
+docker logs 4241647edb6b
+cd Desktop/BlockChain-ZKP/zkp/
+./byfn.sh -m up -l node
+./byfn.sh -m down
+./byfn.sh -m up -l node
+docker exec -it cli bash
+./byfn.sh -m down
+docker ps -a
+docker exec -it cli bash
+docker exec -it cli bash
+cd Desktop/BlockChain-ZKP/zkp/
+./byfn.sh -m down
+clear
+docker ps -a
+./byfn.sh -m up -l node
+docker exec -it cli bash
+clear
+./byfn.sh -m down
+clear
+./runApp.sh 
+code .
+ng new uizkp
+cd uizkp/
+ng serve -o
+git add .
+git commit -m "UI and changes to chaincode"
+git push origin master
+clear
+docker ps -a
+docker logs 5618388469d5
+docker ps -a
+docker logs 133379ce20f4
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+docker rm -f 9e71e471c3cd
+docker ps -a
+docker exec -it cli bash
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+docker logs 41788ebde807
+docker logs ff1b71cfc1ba
+clear
+docker ps -a
+docker logs d26829190a4b
+docker stop d26829190a4b
+docker ps -a
+docker logs d26829190a4b
+clear
+docker rm -f d26829190a4b
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+clear
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+clear
+cd
+cd Documents/fabric-samples/fabcar/
+ls -l
+./startFabric.sh javascript
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune -y
+docker volume prune
+./startFabric.sh javascript
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n fabcar -c '{"function":"initLedger","Args":[]}'
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n fabcar -l "$CC_RUNTIME_LANGUAGE" -v 1.0 -c '{"Args":[]}' -P "OR ('Org1MSP.member','Org2MSP.member')"
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n fabcar -l node -v 1.0 -c '{"Args":[]}' -P "OR ('Org1MSP.member','Org2MSP.member')"
+export CORE_CHAINCODE_STARTUPTIMEOUT=2400s
+export CORE_CHAINCODE_EXECUTETIMEOUT=1600s
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n fabcar -l node -v 1.0 -c '{"Args":[]}' -P "OR ('Org1MSP.member','Org2MSP.member')"
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network  prune 
+clear
+./startFabric.sh 
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+cleaer
+clear
+./startFabric.sh -l javascript
+./startFabric.sh javascript
+export FABRIC_START_TIMEOUT=100
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode instantiate -o orderer.example.com:7050 -C mychannel -n fabcar -l node -v 1.0 -c '{"Args":[]}' -P "OR ('Org1MSP.member','Org2MSP.member')"
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+./startFabric.sh javascript
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+clear
+exit
+cd uizkp/
+ls -l
+ng g s zkp
+npm install rxjs
+./st
+./stop.sh 
+./teardown.sh 
+clear
+./startFabric.sh javascript
+git init
+git add .
+git commit -m "basic network"
+git remote add origin https://github.com/kalyan6013/zkp_bn.git
+git push -u origin master
+ls -l
+cd ..
+cd zkp_bn/
+git echo "# zkp_bn" >> README.md
+git init
+docker ps -a
+docker network prune 
+docker rm -f $(docker ps -aq)
+docker network prune 
+docker volume prune 
+clear
+./startFabric.sh javascript
+./startFabric.sh -l javascript
+./startFabric.sh typescript/
+./startFabric.sh typescript
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker network 
+docker network prune 
+docker volume prune 
+cd ..
+code .
+cd ..
+cd basic-network/
+./stop.sh 
+./teardown.sh 
+docker volume prune 
+docker network prune 
+docker system pe
+docker system prune 
+clerr
+clear
+cd ..
+cd basic-network/
+docker ps -a
+clear
+./stop.sh 
+./teardown.sh 
+docker system prune 
+clear
+docker volume prune 
+docker network prune 
+clea
+clear
+./stop.sh 
+./teardown.sh 
+docker volume prune 
+docker network prune 
+docker builder cache
+docker builder prune 
+clear
+docker ps -a
+docker logs d3d8952e736c
+docker ps -a
+clear
+./stop.sh 
+./teardown.sh 
+docker system prune 
+docker n
+docker network prune 
+docker volume prune 
+clear
+docker ps -a
+docker logs 46afdd8ce62a
+docker ps -a
+docker logs d203c159e6bd
+./st
+./stop.sh 
+./teardown.sh 
+docker ps -a
+docker volume prune 
+docker network prune 
+docker system prune 
+docker builder prune 
+clear
+exit
+git init
+git add .
+git commit -m "Initial Commit"
+git remote add origin https://github.com/kalyan6013/zkp_bn.git
+git push -u origin master
+ls -l
+cd fabcar/
+./startFabric.sh 
+docker ps -a
+./startFabric.sh 
+cd javascript
+npm install
+node enrollAdmin.js 
+node registerUser.js 
+node query.js 
+node invoke.js 
+node query.js 
+clear
+./startFabric.sh 
+cd..
+cd ..
+./startFabric.sh 
+cd javascript
+node query.js 
+cd ..
+./startFabric.sh 
+cd javascript
+node query.js 
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n fabcar -c '{"function":"initLedger","Args":['queryCar','CAR1']}'
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" cli peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n fabcar -c '{"function":"queryCar","Args":['CAR1']}'
+node query.js 
+cd ..
+./startFabric.sh 
+cd javascript
+node query.js 
+cd ..
+cd javascript
+cd ..
+./startFabric.sh 
+cd javascript
+node query.js 
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network 
+docker network prune 
+clear
+cd ..
+./startFabric.sh 
+exit
+cd fabcar/javascript
+docker ps -a
+docker logs 588e3793bcf9
+cd ..
+cd basic-network/
+./stop.sh 
+./teardown.sh 
+docker volume prune 
+docker network prune 
+docker system prune 
+docker builder prune 
+clear
+docker ps -a
+clear
+docker ps -a
+docker logs d8688a5e7e60
+./stop.sh 
+./teardown.sh 
+docker volume prune y
+docker volume prune
+docker network prune 
+exit
+cd fabcar/
+./startFabric.sh 
+cd javascript
+node query.js 
+cd ..
+./startFabric.sh javascript
+exit
+code .
+cd ..
+cd chaincode/
+ls -l
+chmod 777 hyperledger/
+sudo chmod 777 hyperledger/
+rm -rf hyperledger/
+sudo rm -rf hyperledger/
+rm -rf archived/
+rm -rf fabcar/
+git add .
+git commit -m "removed unwanted code"
+git push origin master
+cd fabcar/
+./startFabric.sh javascript
+git add ,
+git add .
+git commit -m "UI changes and Bulletproof JS"
+git push origin master
+cd
+cd Downloads/
+node alt_bn128.js 
+cd Desktop/fabcar/lib/
+ls -l
+node alt_bn128.js
+exit
+code .
+sudo apt-get install testdisk
+testdisk --version
+testdisk
+exit
+pwd
+exit
+testdisk
+sudo apt-get remove testdisk
+lsblk
+sudo apt-get install ext3grep
+ext3grep /dev/sda5 --restore-all --after `date -d '2020-04-18 16:30:00' '+%s'` --before `date -d '2020-04-18 17:30:00' '+%s'` 
+sudo ext3grep /dev/sda5 --restore-all --after `date -d '2020-04-18 16:30:00' '+%s'` --before `date -d '2020-04-18 17:30:00' '+%s'` 
+grep -a -C 200 -F 'bold' /dev/sda5
+sudo grep -a -C 200 -F 'bold' /dev/sda5
+sudo grep -a -C 200 -F 'const isEarlySatrt' /dev/sda5
+sudo grep -a -C 200 -F 'const isEarlyStart' /dev/sda5
+ng serve
+cd ng-fundamentals/
+ng serve
+npm install toastr
+npm install toastr --save
+ng serve
+lsof
+tcp
+ps aux
+ps ax | grep foo
+ps ax | grep terminal
+kill -9 9524
+kill -9 9529
+ps ax | grep terminal
+kill -9 9543
+kill -9 7584
+git remote add origin https://github.com/kalyan6013/angularLearning.git
+git push origin master
+ng serve
+exit
+cd ng-fundamentals/
+ng serve
+ping 8.8.8.8 -t
+ping 8.8.8.8 -ttl
+ping 8.8.8.8 -t ttl
+ping 8.8.8.8  ttl
+ping 8.8.8.8
+ping www.amazon.com
+code .
+git add .
+git commit -m "Converting Sol to JS files"
+git push origin master
+exit
+cd Desktop/an
+cd Desktop/agularLearning/
+ng serve
+cd ng-fundamentals/
+ng serve
+ng serve -aot
+sudo apt-get autoremove
+sudo apt-get autoclean
+sudo apt-get clean
+clear
+exit
+git init
+git add .
+git commit -m "Changes"
+git push origin master
+git push https://github.com/kalyan6013/angularLearning.git
+git push --set-upstream https://github.com/kalyan6013/angularLearning.git master
+git init
+git add .
+git commit -m "1st commit"
+git remote add origin https://github.com/kalyan6013/angularLearning.git
+git push -u origin master
+cd ng-fundamentals/
+ng serve
+exit
+cd ng-fundamentals/
+git clone https://github.com/omershlo/simple-bulletproof-js.git
+cd simple-bulletproof-js/
+npm install
+node bulletproof_single.js 
+code .
+node bulletproof_single.js 
+code .
+node bulletproof_single.js 
+code .
+cd
+cd Documents/
+git clone https://github.com/fluree/legal-fishing.git
+cd l
+cd legal-fishing/
+npm install
+npm start
+code .
+npm install
+npm start
+npm install
+npm start'
+npm start
+node -v
+npm install
+sudo npm install
+clear
+npm init
+npm install @angular/cli
+ls -l
+rm -rf node_modules/
+npm init
+npm install @angular/cli@8
+rm package
+ls -l
+rm package.json 
+rm package-lock.json 
+ng new officerCA
+rm -rf node_modules/
+cd ..
+git init
+exit
+cd Downloads/
+sudo ssh -i angularproject.pem ubuntu@ec2-18-221-95-250.us-east-2.compute.amazonaws.com
+cd Desktop/
+ng new angularproject
+cd angularproject/
+npm install --save bootstrap
+npm install --save jquery
+code .
+exit
+echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+ng serve
+nodemon
+nodemon -o
+nodemon
+sudo apt-get update
+clear
+code .
+clear
+cd
+clear
+sudo apt-get update
+sudo apt-get upgrade
+clear
+sudo apt-get update
+exit
+sudo service apache2 status
+sudo service apache2 stop
+sudo /opt/lampp/lampp start
+sudo add-apt-repository universe
+sudo apt install wireshark
+sudo dpkg-reconfigure wireshark-common
+sudo usermod -a -G wireshark Kalyan
+sudo usermod -a -G wireshark kalyan
+exit
+geth
+clear
+mkdir testeth
+cd testeth/
+vim myGensis.json
+geth --datadir ./testeth init ./myGenesis.json
+geth --datadir ./testeth --networkid 1114 console 2>> myEth.log
+cd ..
+rm -f testeth/
+rmdir -f testeth/
+clear
+mkdir test
+cd test
+vim CustomGenesis.json
+geth — identity "kalyan" — init /CustomGenesis.json — datadir /test/ACPrivateChain
+geth — identity "kalyan" — init /CustomGenesis.json --datadir /test/ACPrivateChain
+geth — identity "kalyan" --init /CustomGenesis.json --datadir /test/ACPrivateChain
+geth --identity "kalyan" --init /CustomGenesis.json --datadir /test/ACPrivateChain
+geth --identity "kalyan" --init ./CustomGenesis.json --datadir ./test
+geth --datadir ./test init ./customGenesis.json --identity "kalyan"
+geth --datadir ./test init ./customGenesis.json
+geth --datadir ./test init ./CustomGenesis.json
+geth --datadir ./test --networkid 9876
+cd
+mkdir demoethereum
+vim myGenesis.json
+clear
+pwd
+geth --datadir home/kalyan/demoethereum init home/kalyan/myGenesis.json
+geth --datadir home/kalyan/demoethereum init /home/kalyan/myGenesis.json
+geth --datadir /home/kalyan/demoethereum init /home/kalyan/myGenesis.json
+clear
+geth --datadir /home/kalyan/demoethereum init /home/kalyan/myGenesis.json
+cd test
+geth --datadir ./testeth init ./myGenesis.json
+cd ..
+cd testeth
+geth --datadir ./testeth init ./myGenesis.json
+clar
+claer
+clear
+geth --datadir ./myDataDir --networkid 1114
+geth --datadir ./myDataDir --networkid 1114 console 2>> myEth.log
+exit
+exit
+cd Desktop/
+cd myDataDir/
+geth --datadir ./myDataDir init ./myGenesis.json
+geth --datadir ./myDataDir --networkid 1114 console 2>> myEth.log
+exit
+tail -f myEth.log
+exit
+geth --datadir ./myDataDir --networkid 1114 console 2>> myEth1.log
+mkdir private-ethereum
+cd private-ethereum/
+geth --datadir ./datadir account new
+nano genesis.json
+geth --datadir ./myDataDir init ./genesis.json
+ls -l
+geth --datadir ./myDataDir init ./genesis.json
+geth --datadir ./myDataDir --networkid 1114 console 2>> myEth.log
+exit
+tail -f myEth.log
+exit
+code .
+cd Documents/
+cd ULTS_Project/
+cd ..
+cd ULTS_Training/
+npm start
+cd ..
+cd ULTS_Project/WorkingCopy/
+ls -l
+cd fabric-ordermanagement/
+ls -l
+npm start
+cd api/
+npm start
+cd
+cd Documents/ULTS_Training/
+ls -l
+cd ..
+cd ULTS_Project/fabric-ordermanagement/
+ls -l
+cd ..
+ls -l
+cd WorkingCopy/
+ls -l
+cd fabric-ordermanagement/
+ls -l
+cd api/
+node app.js 
+cd
+git clone https://github.com/kalyan6013/ULTS_Project.git
+clear
+cd ULTS_Project/
+ls -l
+cd api/
+ls -l
+cd app
+ls -l
+cd ..
+node app.js 
+cd ..
+cd Documents/ULTS_Project/WorkingCopy/fabric-ordermanagement/
+cd api/
+node app.js 
+exit
+c ..
+cd ..
+code .
+ls -l
+cd api/
+ls -l
+docker ps -a
+docker logs 98608086d54d
+clear
+exit
+cd ..
+docker-compose -f artifacts/docker-compose.yaml up
+ls -l
+docker-compose -f artifacts/docker-compose-cli.yaml up
+docker-compose -f channel-artifacts/docker-compose-cli.yaml up
+docker-compose -f docker-compose-cli.yaml up
+clear
+cd
+cd Documents/ULTS_Project/WorkingCopy/fabric-ordermanagement/
+ls -l
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -=a
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+docker ps -a
+clear
+docker-compose -f docker-compose-cli.yaml up -d
+docker ps -a
+docker rm -f $(docker ps -aq)
+docker volume prune 
+docker network prune 
+clear
+exit
+ng serve -o
+code .
